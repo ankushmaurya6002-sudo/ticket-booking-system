@@ -4,23 +4,25 @@ const status = document.getElementById("status")
 const rows = ["A","B","C","D"]
 const cols = 6
 
+// create seat grid
 for(let r of rows){
   for(let c=1;c<=cols;c++){
 
-    const seatId = r+c
+    const seatId = r + c
 
     const seat = document.createElement("div")
-    seat.className="seat"
-    seat.innerText=seatId
+    seat.className = "seat"
+    seat.innerText = seatId
 
-    seat.onclick = () => bookSeat(seat,seatId)
+    seat.onclick = () => bookSeat(seat, seatId)
 
     seatsContainer.appendChild(seat)
 
   }
 }
 
-async function bookSeat(element,seatId){
+// function to book seat
+async function bookSeat(element, seatId){
 
   try{
 
@@ -37,15 +39,17 @@ async function bookSeat(element,seatId){
 
     const data = await response.json()
 
-    document.getElementById("status").innerText = data.message
+    status.innerText = data.message
 
     if(data.success){
       element.classList.add("locked")
     }
 
   }catch(err){
+
     console.error(err)
-    document.getElementById("status").innerText = "Server error"
+    status.innerText = "Server error"
+
   }
 
 }
