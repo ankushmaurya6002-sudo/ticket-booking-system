@@ -1,3 +1,47 @@
-<button onclick="lockSeat('A1')">Book Seat A1</button>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ticket Booking System</title>
+
+  <style>
+    body{
+      font-family: Arial;
+      text-align:center;
+      margin-top:100px;
+      background:#f4f6f8;
+    }
+
+    button{
+      padding:15px 30px;
+      font-size:18px;
+      border:none;
+      border-radius:8px;
+      background:#0077ff;
+      color:white;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:#0056cc;
+    }
+
+    #result{
+      margin-top:20px;
+      font-size:20px;
+      font-weight:bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Concurrent Ticket Booking</h1>
+
+<button onclick="lockSeat()">Book Seat A1</button>
+
+<div id="result"></div>
 
 <script src="script.js"></script>
+
+</body>
+</html>

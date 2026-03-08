@@ -1,13 +1,18 @@
-async function lockSeat(seat) {
-  const res = await fetch("/lock-seat", {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({
-      seatId: seat,
-      userId: "user123"
+async function lockSeat(){
+
+  const response = await fetch("/lock-seat",{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body:JSON.stringify({
+      seatId:"A1",
+      userId:"user"+Math.floor(Math.random()*1000)
     })
   });
 
-  const data = await res.json();
-  alert(data.message);
+  const data = await response.json();
+
+  document.getElementById("result").innerText = data.message;
+
 }
