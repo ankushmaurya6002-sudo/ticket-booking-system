@@ -1,45 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ticket Booking System</title>
+<title>Seat Booking System</title>
 
-  <style>
-    body{
-      font-family: Arial;
-      text-align:center;
-      margin-top:100px;
-      background:#f4f6f8;
-    }
+<style>
 
-    button{
-      padding:15px 30px;
-      font-size:18px;
-      border:none;
-      border-radius:8px;
-      background:#0077ff;
-      color:white;
-      cursor:pointer;
-    }
+body{
+    font-family: Arial, sans-serif;
+    background:#0f172a;
+    color:white;
+    text-align:center;
+}
 
-    button:hover{
-      background:#0056cc;
-    }
+h1{
+    margin-top:30px;
+}
 
-    #result{
-      margin-top:20px;
-      font-size:20px;
-      font-weight:bold;
-    }
-  </style>
+.container{
+    margin-top:40px;
+}
+
+.seats{
+    display:grid;
+    grid-template-columns:repeat(6,60px);
+    gap:15px;
+    justify-content:center;
+    margin-top:40px;
+}
+
+.seat{
+    width:60px;
+    height:60px;
+    background:#1e293b;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.seat:hover{
+    background:#3b82f6;
+}
+
+.booked{
+    background:#ef4444;
+    cursor:not-allowed;
+}
+
+.locked{
+    background:#f59e0b;
+}
+
+#status{
+    margin-top:30px;
+    font-size:20px;
+}
+
+.screen{
+    margin-top:20px;
+    background:#94a3b8;
+    height:8px;
+    width:300px;
+    margin-left:auto;
+    margin-right:auto;
+    border-radius:5px;
+}
+
+</style>
 </head>
 
 <body>
 
-<h1>Concurrent Ticket Booking</h1>
+<h1>🎟️ Ticket Booking System</h1>
 
-<button onclick="lockSeat()">Book Seat A1</button>
+<div class="screen"></div>
+<p>Screen</p>
 
-<div id="result"></div>
+<div class="container">
+
+<div class="seats" id="seats">
+
+</div>
+
+</div>
+
+<div id="status"></div>
 
 <script src="script.js"></script>
 
