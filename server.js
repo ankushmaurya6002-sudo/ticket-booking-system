@@ -1,10 +1,15 @@
 const express = require("express");
 const cors = require("cors");
 const redis = require("./redisClient");
+const path = require("path");
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
+
+// serve frontend
+app.use(express.static(path.join(__dirname, "public")));
 
 const SEAT_LOCK_TIME = 120; // seconds
 
@@ -42,4 +47,7 @@ app.post("/confirm-seat", async (req, res) => {
   }
 });
 
-app.listen(3000, () => console.log("Server running"));
+// Render requires dynamic port
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
