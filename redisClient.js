@@ -1,20 +1,18 @@
 const { createClient } = require("redis");
 
 const client = createClient({
-  url: process.env.REDIS_URL,
-  socket: {
-    tls: true,
-    rejectUnauthorized: false
-  }
+  url: process.env.REDIS_URL
 });
 
 client.on("error", (err) => {
   console.error("Redis Client Error:", err);
 });
 
-(async () => {
+async function connectRedis(){
   await client.connect();
   console.log("Connected to Redis");
-})();
+}
+
+connectRedis();
 
 module.exports = client;
